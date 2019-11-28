@@ -1,16 +1,13 @@
-.navbar {
-    position: fixed;
-    top: 0;
-    left:0;
-    width: 100%;
-    background: #58f7cf;
+.jumbotron{
+    position: relative;
+    
+    background: url('../../../../assets/dj-abstract.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 0% 65%;
 }
 
-ul li {
-    display: inline-block;
-    padding: 10px;
-}
-
-.container {
-    float: right;
-}
+.jumbotron .container {
+    z-index: 2;
+    position: relative;
+  }
