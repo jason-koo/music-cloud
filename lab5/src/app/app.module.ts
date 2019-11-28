@@ -11,6 +11,9 @@ import { OpenHomeComponent} from './components/home/open-home/open-home.componen
 import { AdminHomeComponent } from './components/home/admin-home/admin-home.component';
 import { AuthHomeComponent } from './components/home/auth-home/auth-home.component';
 import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
+import { AboutUsComponent } from './components/about-us/about-us.component';
+import { ContactUsComponent } from './components/contact-us/contact-us.component';
 
 
 @NgModule({
@@ -20,7 +23,10 @@ import { LoginComponent } from './components/login/login.component';
     OpenHomeComponent,
     AdminHomeComponent,
     AuthHomeComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent,
+    AboutUsComponent,
+    ContactUsComponent
 
   ],
   imports: [
@@ -28,7 +34,10 @@ import { LoginComponent } from './components/login/login.component';
     AppRoutingModule,
     RouterModule.forRoot([
       { path: 'api/open', component: OpenHomeComponent },
-      { path: 'login', component: LoginComponent }
+      { path: 'login', component: LoginComponent },
+      { path: 'register', component: RegisterComponent },
+      { path: 'api/open/aboutUs', component: AboutUsComponent },
+      { path: 'api/open/contactUs', component: ContactUsComponent}
     ])
   ],
   providers: [],
