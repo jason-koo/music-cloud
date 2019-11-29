@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 //import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule} from '@angular/router';
@@ -31,8 +32,10 @@ import { ContactUsComponent } from './components/contact-us/contact-us.component
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     RouterModule.forRoot([
+      //{ path: '', redirectTo:'api/open', pathMatch: 'full'},
       { path: 'api/open', component: OpenHomeComponent },
       { path: 'login', component: LoginComponent },
       { path: 'register', component: RegisterComponent },
