@@ -5,6 +5,8 @@ import { FormsModule } from '@angular/forms';
 //import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule} from '@angular/router';
 
+import { HttpClientModule } from '@angular/common/http';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SongCreateComponent } from './components/songs/song-create/song-create.component';
@@ -15,6 +17,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
+import { AuthService } from './services/auth.service';
 
 
 @NgModule({
@@ -33,6 +36,7 @@ import { ContactUsComponent } from './components/contact-us/contact-us.component
   imports: [
     BrowserModule,
     FormsModule,
+    HttpClientModule,
     AppRoutingModule,
     RouterModule.forRoot([
       //{ path: '', redirectTo:'api/open', pathMatch: 'full'},
@@ -40,10 +44,11 @@ import { ContactUsComponent } from './components/contact-us/contact-us.component
       { path: 'login', component: LoginComponent },
       { path: 'register', component: RegisterComponent },
       { path: 'api/open/aboutUs', component: AboutUsComponent },
-      { path: 'api/open/contactUs', component: ContactUsComponent}
+      { path: 'api/open/contactUs', component: ContactUsComponent},
+      { path: 'api/authUser', component: AuthHomeComponent}
     ])
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
