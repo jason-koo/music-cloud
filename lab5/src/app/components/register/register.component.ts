@@ -18,7 +18,7 @@ export class RegisterComponent implements OnInit {
 
   registerUser(){
     this.auth.registerUser(this.registerUserData).subscribe(
-      res => this._router.navigate(['/api/login']),
+      res => this._router.navigate(['/api/open/login']),
       err => alert(err.error)
     )
     

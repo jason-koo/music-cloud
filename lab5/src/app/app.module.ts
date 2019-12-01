@@ -51,8 +51,9 @@ import { AuthGuard } from './guards/auth.guard';
       { path: 'api/open/register', component: RegisterComponent },
       { path: 'api/open/aboutUs', component: AboutUsComponent },
       { path: 'api/open/contactUs', component: ContactUsComponent},
-      { path: 'api/authUser', component: AuthHomeComponent },
-      { path: 'api/open/songs', component: ShowSongsComponent }
+      { path: 'api/authUser', component: AuthHomeComponent, canActivate: [AuthGuard] },
+      { path: 'api/open/songs', component: ShowSongsComponent },
+      { path: 'api/authUser/add-song', component: SongCreateComponent, canActivate: [AuthGuard]}
     ])
   ],
   providers: [AuthService, AuthGuard],
