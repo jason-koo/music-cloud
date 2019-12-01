@@ -8,6 +8,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class SongCreateComponent implements OnInit {
 
+  songData = {}
   constructor() { }
 
   ngOnInit() {

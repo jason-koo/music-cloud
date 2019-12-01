@@ -18,11 +18,16 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/api/open/contactUs">Contact Us</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/login">Login/Register</a>
-                </li>
+                
                 <li class="nav-item">
                     <a class="nav-link" href="/api/authUser/add-song">Add Song</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/api/authUser/add-review">Add Review</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" *ngIf="!_authService.loggedIn()"href="/api/open/login">Login/Register</a>
+                    <a class="nav-link" style="cursor:pointer" *ngIf="_authService.loggedIn()" (click)="_authService.logoutUser()">Logout</a>
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
@@ -38,6 +43,7 @@
                 <th scope="col">Artist</th>
                 <th scope="col">Avg Rating</th>
                 <th scope="col">Reviews</th>
+                <th scope="col">Add Review</th>
             </tr>
         </thead>
         <tbody>
@@ -46,14 +52,16 @@
                 <td>{{song.artist}}</td>
                 <td>{{song.avgRating}}</td>
                 <td>
-                    <a class="btn btn-outline-secondary">
+                    <a class="btn btn-outline-secondary" routerLink="/api/authUser/add-review" routerLinkActive="active">
                         <i class="material-icons">Show Reviews</i>
+                    </a>
+                </td>
+                <td>
+                    <a class="btn btn-outline-secondary" routerLink="/api/authUser/add-review" routerLinkActive="active">
+                        <i class="material-icons">Add Review</i>
                     </a>
                 </td>
             </tr>
         </tbody>
     </table>
-    <a class="btn btn-outline-primary">
-        <i class="material-icons">Add New Song</i>
-    </a>
 </div>

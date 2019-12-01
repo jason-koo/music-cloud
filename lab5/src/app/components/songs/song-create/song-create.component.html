@@ -1,1 +1,73 @@
-<p>song-create works!</p>
+<div class="addSong">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/api/open">MUSIC CLOUD</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/api/open">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/api/open/songs">Songs</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/api/open/aboutUs">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/api/open/contactUs">Contact Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/api/authUser/add-song">Add Song</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/api/authUser/add-review">Add Review</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" *ngIf="!_authService.loggedIn()" routerLink="/api/open/login" routerLinkActive="active">Login/Register</a>
+                    <a class="nav-link" style="cursor:pointer" *ngIf="_authService.loggedIn()" (click)="_authService.logoutUser()">Logout</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search Song" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+    <form>
+        <div class="form-group">
+            <label for="inputObjID">Object ID:</label>
+            <input [(ngModel)]="songData.objectID" type="text" class="form-control" name="objectID">
+        </div>
+        <div class="form-group">
+            <label for="inputTitle">Song Title</label>
+            <input [(ngModel)]="songData.title" type="text" name="title" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="inputArtist">Artist</label>
+            <input [(ngModel)]="songData.artist" type="text"  class="form-control" name="artist">
+        </div>
+        <div class="form-group">
+            <label for="inputAlbum">Album</label>
+            <input [(ngModel)]="songData.album" type="text" class="form-control"name="album">
+        </div>
+        <div class="form-group">
+            <label for="inputYear">Year of song</label>
+            <input [(ngModel)]="songData.year" type="text" class="form-control"name="year">
+        </div>
+        <div class="form-group">
+            <label for="inputComment">Comment</label>
+            <input [(ngModel)]="songData.comment" type="text" class="form-control"name="comment">
+        </div>
+        <div class="form-group">
+            <label for="inputGenre">Genre</label>
+            <input [(ngModel)]="songData.genre" type="text" class="form-control"name="genre">
+        </div>
+        <div class="form-group">
+            <label for="inputAvgRating">Average Rating</label>
+            <input [(ngModel)]="songData.genre" type="text" class="form-control"name="genre">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
