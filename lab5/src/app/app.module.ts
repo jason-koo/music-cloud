@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 //import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule} from '@angular/router';
 
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,6 +21,8 @@ import { AuthService } from './services/auth.service';
 import { ShowSongsComponent } from './components/songs/show-songs/show-songs.component';
 import { ReviewComponent } from './components/review/review.component';
 import { AuthGuard } from './guards/auth.guard';
+import { TokenInterceptorService } from './services/token-interceptor.service';
+import { AddReviewComponent } from './components/add-review/add-review.component';
 
 
 @NgModule({
@@ -35,7 +37,8 @@ import { AuthGuard } from './guards/auth.guard';
     AboutUsComponent,
     ContactUsComponent,
     ShowSongsComponent,
-    ReviewComponent
+    ReviewComponent,
+    AddReviewComponent
 
   ],
   imports: [
@@ -51,12 +54,18 @@ import { AuthGuard } from './guards/auth.guard';
       { path: 'api/open/register', component: RegisterComponent },
       { path: 'api/open/aboutUs', component: AboutUsComponent },
       { path: 'api/open/contactUs', component: ContactUsComponent},
-      { path: 'api/authUser', component: AuthHomeComponent, canActivate: [AuthGuard] },
+      { path: 'api/authUser', component: AuthHomeComponent, },
       { path: 'api/open/songs', component: ShowSongsComponent },
-      { path: 'api/authUser/add-song', component: SongCreateComponent, canActivate: [AuthGuard]}
+      { path: 'api/authUser/add-song', component: SongCreateComponent, /*canActivate: [AuthGuard]*/},
+      { path: 'api/authUser/add-review', component: ReviewComponent}
     ])
   ],
-  providers: [AuthService, AuthGuard],
+  providers: [AuthService, AuthGuard,
+  {
+    provide: HTTP_INTERCEPTORS, 
+    useClass: TokenInterceptorService,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
