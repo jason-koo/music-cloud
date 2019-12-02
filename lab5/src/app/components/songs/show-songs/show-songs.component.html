@@ -36,6 +36,7 @@
             </form>
         </div>
     </nav>
+    <h3>Top 10 Songs</h3>
     <table class="table">
         <thead>
             <tr>
@@ -52,7 +53,7 @@
                 <td>{{song.artist}}</td>
                 <td>{{song.avgRating}}</td>
                 <td>
-                    <a class="btn btn-outline-secondary" routerLink="/api/authUser/add-review" routerLinkActive="active">
+                    <a class="btn btn-outline-secondary" (click)="showReviews(song.objectID)">
                         <i class="material-icons">Show Reviews</i>
                     </a>
                 </td>
@@ -61,6 +62,25 @@
                         <i class="material-icons">Add Review</i>
                     </a>
                 </td>
+            </tr>
+        </tbody>
+    </table>
+    <h3>Reviews</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Title</th>
+                <th scope="col">Rating</th>
+                <th scope="col">Submitted By</th>
+                <th scope="col">Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let review of _showReviewsService.reviews">
+                <td>{{review.songName}}</td>
+                <td>{{review.rating}}</td>
+                <td>{{review.submittedBy}}</td>
+                <td>{{review.description}}</td>
             </tr>
         </tbody>
     </table>

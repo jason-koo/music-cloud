@@ -10,6 +10,7 @@ export class HttpService {
   songs:Song[];
   private _authUserURL = 'http://localhost:8080/api/authUser';
   private _searchURL = "http://localhost:8080/api/open/song/search"
+  
   constructor(private http:HttpClient) { }
 
   getAuthUserPage() {
@@ -19,4 +20,6 @@ export class HttpService {
   findTheSong(searchValue) {
     return this.http.get(this._searchURL + `/${searchValue}`)
   }
+
+  
 }

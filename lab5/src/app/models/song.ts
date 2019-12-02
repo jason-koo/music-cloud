@@ -1,6 +1,5 @@
 export class Song {
-    _id:number;
-    objectID: 5;
+    objectID: number;
     title: string;
     artist: string;
     album: string;

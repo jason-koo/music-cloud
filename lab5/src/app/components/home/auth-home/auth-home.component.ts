@@ -9,7 +9,7 @@ import { AuthService } from '../../../services/auth.service'
 })
 export class AuthHomeComponent implements OnInit {
 
-  constructor(private _http:HttpService, private _authSerivce:AuthService) { }
+  constructor(private _http:HttpService, private _authService:AuthService) { }
 
   ngOnInit() {
     this._http.getAuthUserPage().subscribe(

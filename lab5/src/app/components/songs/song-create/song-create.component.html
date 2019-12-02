@@ -25,8 +25,7 @@
                     <a class="nav-link" href="/api/authUser/add-review">Add Review</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" *ngIf="!_authService.loggedIn()" routerLink="/api/open/login" routerLinkActive="active">Login/Register</a>
-                    <a class="nav-link" style="cursor:pointer" *ngIf="_authService.loggedIn()" (click)="_authService.logoutUser()">Logout</a>
+                    
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
@@ -35,39 +34,48 @@
             </form>
         </div>
     </nav>
-    <form>
+    <form #songForm="ngForm" (ngSubmit)="addSong(songForm)">
+        <input type="hidden" name="objectID" #objectID="ngModel" [(ngModel)]="_addSongService.selectedSong.objectID">
         <div class="form-group">
-            <label for="inputObjID">Object ID:</label>
-            <input [(ngModel)]="songData.objectID" type="text" class="form-control" name="objectID">
+            <div class="input-field col s12">
+                <label for="inputTitle">Song Title</label>
+                <input [(ngModel)]="_addSongService.selectedSong.title" #title="ngModel" type="text" name="title" class="form-control">
+            </div>
         </div>
         <div class="form-group">
-            <label for="inputTitle">Song Title</label>
-            <input [(ngModel)]="songData.title" type="text" name="title" class="form-control">
+            <div class="input-field col s12">
+                <label for="inputArtist">Artist</label>
+                <input [(ngModel)]="_addSongService.selectedSong.artist" #artist="ngModel"  class="form-control" name="artist">
+            </div>
         </div>
         <div class="form-group">
-            <label for="inputArtist">Artist</label>
-            <input [(ngModel)]="songData.artist" type="text"  class="form-control" name="artist">
+            <div class="input-field col s12">
+                <label for="inputAlbum">Album</label>
+                <input [(ngModel)]="_addSongService.selectedSong.album" #album="ngModel" type="text" class="form-control"name="album">
+            </div>
         </div>
         <div class="form-group">
-            <label for="inputAlbum">Album</label>
-            <input [(ngModel)]="songData.album" type="text" class="form-control"name="album">
+            <div class="input-field col s12">
+                <label for="inputYear">Year of song</label>
+                <input [(ngModel)]="_addSongService.selectedSong.year" #year="ngModel" type="text" class="form-control"name="year">
+            </div>
         </div>
         <div class="form-group">
-            <label for="inputYear">Year of song</label>
-            <input [(ngModel)]="songData.year" type="text" class="form-control"name="year">
+            <div class="input-field col s12">
+                <label for="inputComment">Comment</label>
+                <input [(ngModel)]="_addSongService.selectedSong.comment" #comment="ngModel" type="text" class="form-control"name="comment">
+            </div>
         </div>
         <div class="form-group">
-            <label for="inputComment">Comment</label>
-            <input [(ngModel)]="songData.comment" type="text" class="form-control"name="comment">
+            <div class="input-field col s12">
+                <label for="inputGenre">Genre</label>
+                <input [(ngModel)]="_addSongService.selectedSong.genre" #genre="ngModel" type="text" class="form-control"name="genre">
+            </div>
         </div>
         <div class="form-group">
-            <label for="inputGenre">Genre</label>
-            <input [(ngModel)]="songData.genre" type="text" class="form-control"name="genre">
+            <div class="input-field col s12">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
         </div>
-        <div class="form-group">
-            <label for="inputAvgRating">Average Rating</label>
-            <input [(ngModel)]="songData.genre" type="text" class="form-control"name="genre">
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 </div>

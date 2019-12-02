@@ -3,7 +3,7 @@ import { CanActivate, CanActivateChild, CanLoad, Route, UrlSegment, ActivatedRou
 import { Observable, fromEventPattern } from 'rxjs';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
-import { truncate } from 'fs';
+//import { truncate } from 'fs';
 
 @Injectable({
   providedIn: 'root'
