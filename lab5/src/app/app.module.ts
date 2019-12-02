@@ -57,7 +57,7 @@ import { AddReviewComponent } from './components/add-review/add-review.component
       { path: 'api/authUser', component: AuthHomeComponent, },
       { path: 'api/open/songs', component: ShowSongsComponent },
       { path: 'api/authUser/add-song', component: SongCreateComponent, /*canActivate: [AuthGuard]*/},
-      { path: 'api/authUser/add-review', component: AddReviewComponent},
+      { path: 'api/authUser/add-review/:objID', component: AddReviewComponent},
       { path: 'api/open/show-reviews', component: ReviewComponent}
     ])
   ],

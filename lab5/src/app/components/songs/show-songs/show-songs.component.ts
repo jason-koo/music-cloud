@@ -39,4 +39,8 @@ export class ShowSongsComponent implements OnInit {
     })
   }
 
+  addReview(objID) {
+    this._router.navigate(['/api/authUser/add-review', objID])
+  }
+
 }

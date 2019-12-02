@@ -53,12 +53,12 @@
                 <td>{{song.artist}}</td>
                 <td>{{song.avgRating}}</td>
                 <td>
-                    <a class="btn btn-outline-secondary" (click)="showReviews(song.objectID)">
+                    <a class="btn btn-outline-secondary"  (click)="showReviews(song.objectID)">
                         <i class="material-icons">Show Reviews</i>
                     </a>
                 </td>
                 <td>
-                    <a class="btn btn-outline-secondary" routerLink="/api/authUser/add-review" routerLinkActive="active">
+                    <a class="btn btn-outline-secondary" (click)="addReview()" [routerLink]="['/api/authUser/add-review', song.objectID]">
                         <i class="material-icons">Add Review</i>
                     </a>
                 </td>

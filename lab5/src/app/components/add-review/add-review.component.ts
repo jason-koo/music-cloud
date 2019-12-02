@@ -1,4 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { AddReviewService } from '../../services/add-review.service'
+import { NgForm } from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
+
+
 
 @Component({
   selector: 'app-add-review',
@@ -7,9 +13,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddReviewComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router, private route:ActivatedRoute,
+     private _addReviewService:AddReviewService, private _authService:AuthService) { }
 
   ngOnInit() {
+  }
+  //objId = this.route.snapshot.paramMap.get('objID')
+  addReview(form:NgForm) {
+    var objID = this.route.snapshot.paramMap.get('objID')
+    console.log(objID)
+    this._addReviewService.addNewReview(form.value, objID).subscribe((res) => {
+      console.log(res);
+    })
   }
 
 }
