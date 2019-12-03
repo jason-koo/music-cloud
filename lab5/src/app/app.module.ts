@@ -25,6 +25,8 @@ import { TokenInterceptorService } from './services/token-interceptor.service';
 import { AddReviewComponent } from './components/add-review/add-review.component';
 import { UsersComponent } from './components/users/users.component';
 import { SongDetailsComponent } from './components/song-details/song-details.component';
+import { HelpComponent } from './components/help/help.component';
+import { CopyrightComponent } from './components/copyright/copyright.component';
 
 
 @NgModule({
@@ -42,7 +44,9 @@ import { SongDetailsComponent } from './components/song-details/song-details.com
     ReviewComponent,
     AddReviewComponent,
     UsersComponent,
-    SongDetailsComponent
+    SongDetailsComponent,
+    HelpComponent,
+    CopyrightComponent
 
   ],
   imports: [
@@ -60,11 +64,13 @@ import { SongDetailsComponent } from './components/song-details/song-details.com
       { path: 'api/open/contactUs', component: ContactUsComponent},
       { path: 'api/authUser', component: AuthHomeComponent, },
       { path: 'api/open/songs', component: ShowSongsComponent },
-      { path: 'api/authUser/add-song', component: SongCreateComponent, /*canActivate: [AuthGuard]*/},
-      { path: 'api/authUser/add-review/:objID', component: AddReviewComponent},
+      { path: 'api/authUser/add-song', component: SongCreateComponent, canActivate: [AuthGuard]},
+      { path: 'api/authUser/add-review/:objID', component: AddReviewComponent, canActivate: [AuthGuard]},
       { path: 'api/open/show-reviews', component: ReviewComponent},
       { path: 'api/admin/home', component: AdminHomeComponent},
-      { path: 'api/open/song-details/:objID', component: SongDetailsComponent}
+      { path: 'api/open/song-details/:objID', component: SongDetailsComponent},
+      { path: 'api/open/help', component: HelpComponent},
+      { path: 'api/open/reportCopyright', component: CopyrightComponent}
     ])
   ],
   providers: [AuthService, AuthGuard,
