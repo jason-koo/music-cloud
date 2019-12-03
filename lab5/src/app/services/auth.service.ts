@@ -12,6 +12,8 @@ export class AuthService {
   users: User[];
   private registerURL = "http://localhost:8080/api/open/register";
   private loginURL =  "http://localhost:8080/api/open/login";
+  private makeAdminURL = "http://localhost:8080/api/admin/makeAdmin"
+
 
   constructor(private http: HttpClient, private _router:Router) { }
 
@@ -43,5 +45,9 @@ export class AuthService {
   logoutAdmin() {
     localStorage.removeItem('adminToken')
     this._router.navigate(['/api/open'])
+  }
+
+  giveAdminPriv(_id) {
+    return this.http.post(this.makeAdminURL + `/${_id}`, null)
   }
 }

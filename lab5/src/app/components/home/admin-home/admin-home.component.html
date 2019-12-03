@@ -57,7 +57,9 @@
                 <td>{{true == user.active ? 'Active' : 'Deactivated'}}</td>
                 <td>{{true == user.isAdmin ? 'Yes' : 'No'}}</td>
                 <td>
-                    
+                    <a class="btn btn-outline-secondary" (click)="makeUserAdmin(user._id)">
+                        <i class="materials-icons">Make admin</i>
+                    </a>
                 </td>
             </tr>
         </tbody>

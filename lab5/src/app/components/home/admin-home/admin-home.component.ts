@@ -22,4 +22,11 @@ export class AdminHomeComponent implements OnInit {
     })
   }
 
+  makeUserAdmin(_id:string) {
+    this._authService.giveAdminPriv(_id).subscribe(
+      res => console.log(res),
+      err => console.log(err)
+    )
+  }
+
 }
