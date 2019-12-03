@@ -22,11 +22,8 @@
                             <a class="nav-link" href="/login">Login/Register</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/api/authUser/add-song">Add Song</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/api/authUser/add-review">Add Review</a>
-                        </li>
+                                <a class="nav-link" href="/api/open/help">Help Center</a>
+                            </li>
                         <li class="nav-item">
                             <a class="nav-link" *ngIf="!_authService.loggedIn()" routerLink="/api/open/login" routerLinkActive="active">Login/Register</a>
                             <a class="nav-link" style="cursor:pointer" *ngIf="_authService.loggedIn()" (click)="_authService.logoutUser()">Logout</a>
