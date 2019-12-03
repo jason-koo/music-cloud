@@ -22,7 +22,7 @@
                     <a class="nav-link" href="/api/authUser/add-song">Add Song</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/api/authUser/add-review">Add Review</a>
+                    <a class="nav-link" href="/api/open/help">Help Center</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" *ngIf="!_authService.loggedIn()" routerLink="/api/open/login" routerLinkActive="active">Login/Register</a>
@@ -36,6 +36,14 @@
         </div>
     </nav>
     <div>
-        <h3>LOL</h3>
+        <h3 style="padding: 20px;">About Us</h3>
+        <p style="margin: 20px;">Music Cloud is a music and audio review platform where
+            people can come and check out the most popular songs
+            today. Users can also add their own reviews and ratings
+            to a song.
+        </p>
+        <p style="margin: 20px;">If you have any concerns please contact us on the contact 
+            us page or visit the help center.
+        </p>
     </div>
 </div>
