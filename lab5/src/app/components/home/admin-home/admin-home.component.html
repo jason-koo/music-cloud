@@ -45,15 +45,15 @@
                 <th scope="col">Username</th>
                 <th scope="col">Email</th>
                 <th scope="col">Verified</th>
-                <th scope="col">Deactivate</th>
+                <th scope="col">Status</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>test</td>
-                <td>test</td>
-                <td>test</td>
-                <td>test</td>
+            <tr *ngFor="let user of _showUsersService.users">
+                <td>{{user.username}}</td>
+                <td>{{user.email}}</td>
+                <td>{{true == user.confirmed ? 'Yes' : 'No'}}</td>
+                <td>{{true == user.active ? 'Active' : 'Deactivated'}}</td>
             </tr>
         </tbody>
     </table>
