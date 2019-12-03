@@ -1,0 +1,33 @@
+{
+  "name": "lab5-api",
+  "version": "1.0.0",
+  "description": "## Intro This is a REST api that allows for access to database. ## Usage 1. /api/admin Requires admin privileges",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jason-koo/music-library-rest-api.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jason-koo/music-library-rest-api/issues"
+  },
+  "homepage": "https://github.com/jason-koo/music-library-rest-api#readme",
+  "dependencies": {
+    "@hapi/joi": "^16.1.8",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.7.12",
+    "string-similarity": "^3.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.1"
+  }
+}
