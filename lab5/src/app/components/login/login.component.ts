@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
+import { User } from '../../models/user';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -9,14 +11,23 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  loginUserData = {}
-  constructor(private auth: AuthService, private _router:Router) { }
+  //loginUserData = {}
+  constructor(private _authService: AuthService, private _router:Router) { }
 
   ngOnInit() {
   }
 
-  loginUser() {
-    this.auth.loginNewUser(this.loginUserData).subscribe(
+  loginUser(form:NgForm) {
+    if(form.value.email == "admin@gmail.com") {
+      this._authService.loginNewUser(form.value).subscribe(
+        res => {
+          console.log(res)
+          localStorage.setItem('adminToken', res.token);
+          this._router.navigate(['/api/admin/home']);
+        }
+      )
+    } else {
+      this._authService.loginNewUser(form.value).subscribe(
         res => {
           console.log(res)
           localStorage.setItem('token', res.token);
@@ -24,6 +35,8 @@ export class LoginComponent implements OnInit {
         },
         err => alert(err.error)
       )
+    }
+    
   }
 
 }

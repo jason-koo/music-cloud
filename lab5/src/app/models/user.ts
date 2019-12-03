@@ -6,4 +6,5 @@ export class User {
     date: Date;
     confirmed: Boolean;
     active: Boolean;
+    isAdmin: Boolean;
 }

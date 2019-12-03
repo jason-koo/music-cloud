@@ -28,8 +28,8 @@
                     <a class="nav-link" href="/api/admin/users">Users</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" *ngIf="!_authService.loggedIn()" routerLink="/api/open/login" routerLinkActive="active">Login/Register</a>
-                    <a class="nav-link" style="cursor:pointer" *ngIf="_authService.loggedIn()" (click)="_authService.logoutUser()">Logout</a>
+                    <a class="nav-link" *ngIf="!_authService.adminLoggedIn()" routerLink="/api/open/login" routerLinkActive="active">Login/Register</a>
+                    <a class="nav-link" style="cursor:pointer" *ngIf="_authService.adminLoggedIn()" (click)="_authService.logoutAdmin()">Logout</a>
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
@@ -46,6 +46,7 @@
                 <th scope="col">Email</th>
                 <th scope="col">Verified</th>
                 <th scope="col">Status</th>
+                <th scope="col">Admin Privileges</th>
             </tr>
         </thead>
         <tbody>
@@ -54,6 +55,10 @@
                 <td>{{user.email}}</td>
                 <td>{{true == user.confirmed ? 'Yes' : 'No'}}</td>
                 <td>{{true == user.active ? 'Active' : 'Deactivated'}}</td>
+                <td>{{true == user.isAdmin ? 'Yes' : 'No'}}</td>
+                <td>
+                    
+                </td>
             </tr>
         </tbody>
     </table>
