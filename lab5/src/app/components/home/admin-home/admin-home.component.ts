@@ -29,4 +29,18 @@ export class AdminHomeComponent implements OnInit {
     )
   }
 
+  deactivate(_id:string) {
+    this._authService.deactivateUser(_id).subscribe(
+      res => console.log(res),
+      err => console.log(err)
+    )
+  }
+
+  activate(_id:string) {
+    this._authService.activateUser(_id).subscribe(
+      res => console.log(res),
+      err => console.log(err)
+    )
+  }
+
 }

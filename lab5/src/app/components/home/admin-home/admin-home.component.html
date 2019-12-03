@@ -61,6 +61,16 @@
                         <i class="materials-icons">Make admin</i>
                     </a>
                 </td>
+                <td>
+                    <a class="btn btn-outline-secondary" (click)="deactivate(user._id)">
+                        <i class="materials-icons">Deactivate</i>
+                    </a>
+                </td>
+                <td>
+                    <a class="btn btn-outline-secondary" (click)="activate(user._id)">
+                        <i class="materials-icons">Activate</i>
+                    </a>
+                </td>
             </tr>
         </tbody>
     </table>
