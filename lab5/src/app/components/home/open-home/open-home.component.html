@@ -23,7 +23,7 @@
                 <a class="nav-link" href="/api/authUser/add-song">Add Song</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/api/authUser/add-review">Add Review</a>
+                <a class="nav-link" href="/api/open/help">Help Center</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" *ngIf="!_authService.loggedIn()" routerLink="/api/open/login" routerLinkActive="active">Login/Register</a>
@@ -39,11 +39,10 @@
       </nav>
       <div class="jumbotron jumbotron-fluid">
           <div class="container text-white">
-                <h1 class="display-4">Welcome!</h1>
-                <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+                <h1 class="display-4">Welcome to Music Cloud!</h1>
+                <p class="lead">A muisc and auido reviewing platform.</p>
                 <hr class="my-4">
-                <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-                <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+                <a class="btn btn-primary btn-lg" href="/api/open/aboutUs" role="button">Learn more</a>
             </div>
       </div>
       <table class="table">
