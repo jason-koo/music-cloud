@@ -1,1 +1,91 @@
-<p>help works!</p>
+<div class="help">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/api/open">MUSIC CLOUD</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/api/open">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/api/open/songs">Songs</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/api/open/aboutUs">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/api/open/contactUs">Contact Us</a>
+                </li>   
+                <li class="nav-item">
+                    <a class="nav-link" href="/api/authUser/add-song">Add Song</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/api/open/help">Help Center</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" *ngIf="!_authService.loggedIn()" routerLink="/api/open/login" routerLinkActive="active">Login/Register</a>
+                    <a class="nav-link" style="cursor:pointer" *ngIf="_authService.loggedIn()" (click)="_authService.logoutUser()">Logout</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search Song" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+    <div style="padding: 10px;">
+        <h2>Help Center</h2>
+    </div>
+    <div style="padding: 20px;">
+        <h4>Privacy Policy</h4>
+    </div>
+    <div style="margin: 20px;">
+        <p>Welcome to Music Cloud's privacy policy. We believe that everyone has a right to privacy
+            no matter who you are. All the personal information we collect is related to providing the Platform and 
+            its features and falls into three general categories:
+        </p>
+        <ul>
+            <li>Information you provide to us</li>
+            <li>information collected automatically</li>
+            <li>information we obtain fro, third parties</li>
+        </ul>
+        <p>You don't need to register for am account to use this site. However
+            certain services provided by the website require a account.
+        </p>
+        <ul>
+            <li>Account Information - When you register for an account you will need to provide your username,
+                email address and a password.</li>
+            <li>Profile Information - You may provide pesonal information
+                when posting to the site such as a review.
+            </li>
+        </ul>
+        <h5>Information we collect</h5>
+        <p>We store you username, email and passwords in cloud hosted database.
+            The passwords are store after hashing to maintain privacy.
+        </p>
+    </div>
+    <div style="padding: 20px;">
+        <h4>DMCA Takedownn Policy</h4>
+    </div>
+    <div style="margin:20px;">
+        <p>Welcome to Music Cloud's DMCA policy.</p>
+        <h5>Report Copyright Infringement</h5>
+        <p>If you identify any tracks on Music Cloud that you believe infringe your copyright, you can let
+             us know using any of the methods explained on these pages.</p>
+        <ul>
+            <li>These pages relate to notices concerning copyright infringement only If you wish to make
+                 a report concerning infringement of any other rights,
+                  please email us at jkoo26@uwo.ca</li>
+            <li>Please only report infringement of your own copyright, or the
+                 copyright of someone you are authorized to represent If you
+                  believe that someone else’s copyright is being infringed, 
+                  please tell them and direct them to this page.</li>
+            <li>Please provide detail the more information we have regarding your claim, the quicker we can process your notice.</li>
+        </ul>
+        <a class="btn btn-outline-primary" (click)="reportCopyright()">
+            <i class="materials-icon">Report Copyright Infringement</i>
+        </a>
+    </div>
+</div>

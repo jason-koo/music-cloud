@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-help',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HelpComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _authService:AuthService, private _route:Router) { }
 
   ngOnInit() {
+  }
+
+  reportCopyright() {
+    this._route.navigate(['/api/open/reportCopyright'])
   }
 
 }
