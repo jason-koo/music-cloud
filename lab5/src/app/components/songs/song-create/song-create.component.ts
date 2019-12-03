@@ -33,9 +33,13 @@ export class SongCreateComponent implements OnInit {
   addSong(form : NgForm) {
     form.value.objectID = this._addSongService.songs.length + 1;
     console.log(form.value)
-    this._addSongService.addNewSong(form.value).subscribe((res) => {
+    this._addSongService.addNewSong(form.value).subscribe(
+      res => {
       console.log(res);
-    })
+    },
+      err => alert("Missing/Incorrect Field")
+    
+    )
   }
 
   
