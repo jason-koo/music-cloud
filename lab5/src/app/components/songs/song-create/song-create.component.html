@@ -22,10 +22,11 @@
                     <a class="nav-link" href="/api/authUser/add-song">Add Song</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/api/authUser/add-review">Add Review</a>
+                    <a class="nav-link" href="/api/open/help">Help Center</a>
                 </li>
                 <li class="nav-item">
-                    
+                    <a class="nav-link" *ngIf="!_authService.loggedIn()"href="/api/open/login">Login/Register</a>
+                    <a class="nav-link" style="cursor:pointer" *ngIf="_authService.loggedIn()" (click)="_authService.logoutUser()">Logout</a>
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
@@ -34,6 +35,7 @@
             </form>
         </div>
     </nav>
+    <h3>Add New Song</h3>
     <form #songForm="ngForm" (ngSubmit)="addSong(songForm)">
         <input type="hidden" name="objectID" #objectID="ngModel" [(ngModel)]="_addSongService.selectedSong.objectID">
         <div class="form-group">
@@ -78,4 +80,37 @@
             </div>
         </div>
     </form>
+    <h3>Add Review</h3>
+    <form #reviewForm="ngForm" (ngSubmit)="addReview(reviewForm)">
+            <input type="hidden" name="objectID" #objectID="ngModel" [(ngModel)]="_addReviewService.selectedReview.objectID">
+            <div class="form-group">
+                <div class="input-field col s12">
+                    <label for="inputRating">Rating:</label>
+                    <input [(ngModel)]="_addReviewService.selectedReview.rating" #rating="ngModel" name="rating" type="number" class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input-field col s12">
+                    <label for="inputSongName">Title:</label>
+                    <input [(ngModel)]="_addReviewService.selectedReview.songName" #songName="ngModel" name="songName" type="text" class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input-field col s12">
+                    <label for="inputUser">Username:</label>
+                    <input [(ngModel)]="_addReviewService.selectedReview.submittedBy" #submittedBy="ngModel" name="submittedBy" type="text" class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input-field col s12">
+                    <label for="inputDescription">Description:</label>
+                    <input [(ngModel)]="_addReviewService.selectedReview.description" #description="ngModel" name="description" type="text" class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input-field col s12">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </form>
 </div>
