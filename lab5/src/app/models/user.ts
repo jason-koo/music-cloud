@@ -5,4 +5,5 @@ export class User {
     password: String;
     date: Date;
     confirmed: Boolean;
+    active: Boolean;
 }

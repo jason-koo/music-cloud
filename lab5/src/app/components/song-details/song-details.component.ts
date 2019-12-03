@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../../services/auth.service';
+import { ShowSongDetailsService } from '../../services/show-song-details.service';
+import { Router, ActivatedRoute } from '@angular/router';
+import { Song } from '../../models/song';
+
 
 @Component({
   selector: 'app-song-details',
@@ -7,9 +12,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SongDetailsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _authService:AuthService, private _showSongDetailsService:ShowSongDetailsService,
+    private route:ActivatedRoute, private router:Router) { }
 
   ngOnInit() {
+    this.showSongDetails();
+  }
+
+  showSongDetails() {
+    var objID = this.route.snapshot.paramMap.get('objID')
+    this._showSongDetailsService.getSongDetails(objID).subscribe((res)=> {
+      this._showSongDetailsService.songs = res as Song[]
+    })
   }
 
 }

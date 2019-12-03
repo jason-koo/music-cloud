@@ -1,1 +1,61 @@
-<p>song-details works!</p>
+<div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/api/open">MUSIC CLOUD</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/api/open">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/api/open/songs">Songs</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/api/open/aboutUs">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/api/open/contactUs">Contact Us</a>
+                </li>    
+                <li class="nav-item">
+                    <a class="nav-link" href="/api/authUser/add-song">Add Song</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/api/authUser/add-review">Add Review</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" *ngIf="!_authService.loggedIn()"href="/api/open/login">Login/Register</a>
+                    <a class="nav-link" style="cursor:pointer" *ngIf="_authService.loggedIn()" (click)="_authService.logoutUser()">Logout</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search Song" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+    <h3>Song Details</h3>
+    <table class="table">
+        <thead>
+            <th scope="col">Title</th>
+            <th scope="col">Artist</th>
+            <th scope="col">Albun</th>
+            <th scope="col">Year</th>
+            <th scope="col">Comment</th>
+            <th scope="col">Genre</th>
+            <th scope="col"># of Reviews</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let song of _showSongDetailsService.songs">
+                <td>{{song.title}}</td>
+                <td>{{song.artist}}</td>
+                <td>{{song.album}}</td>
+                <td>{{song.year}}</td>
+                <td>{{song.comment}}</td>
+                <td>{{song.genre}}</td>
+                <td>{{song.numOfReviews}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

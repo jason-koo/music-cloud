@@ -43,4 +43,9 @@ export class ShowSongsComponent implements OnInit {
     this._router.navigate(['/api/authUser/add-review', objID])
   }
 
+  showSongDetails(objID) {
+    this._router.navigate(['/api/open/song-details', objID])
+  }
+
+
 }

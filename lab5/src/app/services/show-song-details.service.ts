@@ -12,5 +12,7 @@ export class ShowSongDetailsService {
   private showSongDetailsURL = "http://localhost:8080/api/open/song-details/"
   constructor(private _http:HttpClient) { }
 
-
+  getSongDetails(objID) {
+    return this._http.get(this.showSongDetailsURL +`${objID}`);
+  }
 }

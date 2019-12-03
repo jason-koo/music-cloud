@@ -45,6 +45,7 @@
                 <th scope="col">Avg Rating</th>
                 <th scope="col">Reviews</th>
                 <th scope="col">Add Review</th>
+                <th scope="col">Details</th>
             </tr>
         </thead>
         <tbody>
@@ -62,6 +63,11 @@
                         <i class="material-icons">Add Review</i>
                     </a>
                 </td>
+                <td>
+                    <a class="btn btn-outline-secondary" (click)="showSongDetails()" [routerLink]="['/api/open/song-details', song.objectID]">
+                        <i class="material-icons">Show Details</i>
+                    </a>
+                </td>
             </tr>
         </tbody>
     </table>
@@ -73,6 +79,7 @@
                 <th scope="col">Rating</th>
                 <th scope="col">Submitted By</th>
                 <th scope="col">Description</th>
+                
             </tr>
         </thead>
         <tbody>
@@ -81,6 +88,7 @@
                 <td>{{review.rating}}</td>
                 <td>{{review.submittedBy}}</td>
                 <td>{{review.description}}</td>
+                
             </tr>
         </tbody>
     </table>
