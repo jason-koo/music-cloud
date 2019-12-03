@@ -24,6 +24,7 @@ import { AuthGuard } from './guards/auth.guard';
 import { TokenInterceptorService } from './services/token-interceptor.service';
 import { AddReviewComponent } from './components/add-review/add-review.component';
 import { UsersComponent } from './components/users/users.component';
+import { SongDetailsComponent } from './components/song-details/song-details.component';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { UsersComponent } from './components/users/users.component';
     ShowSongsComponent,
     ReviewComponent,
     AddReviewComponent,
-    UsersComponent
+    UsersComponent,
+    SongDetailsComponent
 
   ],
   imports: [
@@ -61,7 +63,8 @@ import { UsersComponent } from './components/users/users.component';
       { path: 'api/authUser/add-song', component: SongCreateComponent, /*canActivate: [AuthGuard]*/},
       { path: 'api/authUser/add-review/:objID', component: AddReviewComponent},
       { path: 'api/open/show-reviews', component: ReviewComponent},
-      { path: 'api/admin/home', component: AdminHomeComponent}
+      { path: 'api/admin/home', component: AdminHomeComponent},
+      { path: 'api/open/song-details/:objID', component: SongDetailsComponent}
     ])
   ],
   providers: [AuthService, AuthGuard,
