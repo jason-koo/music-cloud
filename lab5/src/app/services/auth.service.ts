@@ -12,8 +12,7 @@ export class AuthService {
   users: User[];
   private registerURL = "http://localhost:8080/api/open/register";
   private loginURL =  "http://localhost:8080/api/open/login";
-  private makeAdminURL = "http://localhost:8080/api/admin/makeAdmin"
-
+  private adminURL = "http://localhost:8080/api/admin"
 
   constructor(private http: HttpClient, private _router:Router) { }
 
@@ -48,6 +47,16 @@ export class AuthService {
   }
 
   giveAdminPriv(_id) {
-    return this.http.post(this.makeAdminURL + `/${_id}`, null)
+    return this.http.post(this.adminURL + `/makeAdmin/${_id}`, null);
   }
+
+  deactivateUser(_id) {
+    return this.http.post(this.adminURL + `/deactivate/${_id}`, null);
+  }
+
+  activateUser(_id) {
+    return this.http.post(this.adminURL + `/activate/${_id}`, null);
+  }
+
+
 }
